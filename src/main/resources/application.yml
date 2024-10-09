@@ -1,4 +1,12 @@
+stark:
+  account:
+    environment: ${ZONE:local}
+    id: ${ID_ACCOUNT:0000000000}
+    key: ${KEY:local}
 quarkus:
+  hibernate-orm:
+    database:
+      generation: none
   datasource:
     jdbc:
       url: ${DATABASE_URL:urlDoBanco_schema}
@@ -7,10 +15,14 @@ quarkus:
     password: ${DATABASE_PASSWORD:password}
 kafka:
   bootstrap:
-    servers: kafka:9092
+    servers: localhost:9092
 mp:
   messaging:
     incoming:
       challenge:
         connector: smallrye-kafka
         topic: intention-transfer
+        value:
+          deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        key:
+          deserializer: org.apache.kafka.common.serialization.StringDeserializer
