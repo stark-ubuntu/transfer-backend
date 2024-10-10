@@ -1,0 +1,17 @@
+name: APP Workflow CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_version:
+        description: Image Version
+        required: true
+  push:
+    branches: [ main ]
+
+jobs:
+  CI:
+    uses: stark-ubuntu/devops-backend/.github/workflows/ci.yml@main
+    with:
+      name: "transfer-backend"
+      version: "1.0.0"
