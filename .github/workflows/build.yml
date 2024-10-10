@@ -12,4 +12,4 @@ jobs:
     uses: stark-ubuntu/devops-backend/.github/workflows/ci.yml@main
     with:
       name: "transfer-backend"
-      version: "1.0.0"
+      version: ${{ inputs.image_version }}
