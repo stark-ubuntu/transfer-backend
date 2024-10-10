@@ -6,8 +6,6 @@ on:
       image_version:
         description: Image Version
         required: true
-  push:
-    branches: [ main ]
 
 jobs:
   CI:
